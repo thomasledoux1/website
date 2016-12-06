@@ -1,0 +1,37 @@
+<html>
+<head>
+  <title>Mijn website</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
+
+  <script src="/javascripts/angularApp.js"></script>
+  </head>
+  <body ng-app="mijnWebsite">
+    <div>
+      {{test}}
+      <ui-view></ui-view>
+    </div>
+
+    <script type="text/ng-template" id="/home.html">
+      <div class="page-header">
+        <h1>Thomas Ledoux' website</h1>
+        <span>
+          <a href="#/sports/{{index}}">Sport</a>
+        </span>
+      </div>
+    </script>
+
+    <script type="text/ng-template" id="/sports.html">
+  <div class="page-header">
+    <h3>
+      <a ng-show="sport.link" href="{{sport.link}}">
+        {{sport.title}}
+      </a>
+      <span ng-hide="sport.link">
+        {{sport.title}}
+      </span>
+    </h3>
+  </div>
+</script>
+  </body>
+</html>

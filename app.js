@@ -1,5 +1,7 @@
 var app = angular.module('mijnWebsite', ['ui-router']);
 
+
+
 app.config([
   '$stateProvider', '$urlRouterProvider',
   function($stateProvider, $urlRouterProvider){
@@ -29,6 +31,15 @@ app.controller('MainCtrl', [
   function($scope, sports){
     $scope.test = 'Hello world';
     $scope.sports = sports.sports;
+  },
+  $scope.addSport = function() {
+    if(!$scope.title || $scope.title===''){return;}
+    $scope.sports.push({
+      title : $scope.title,
+      link : $scope.link
+    });
+    $scope.title = '';
+    $scope.link = '';
   }
 ]);
 
@@ -37,6 +48,6 @@ app.controller('SportsCtrl', [
   '$stateParams',
   'spots',
   function($scope, $stateParams, sports){
-
+      $scope.sport = sports.sports[$stateParams.id];
   }
 ]);

@@ -40,7 +40,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
 
-app.use('/templates', express.static(path.join(__dirname + '/templates')));
+app.use('/website/templates', express.static(path.join(__dirname + '/templates')));
 
 app.use('/', routes);
 app.use('/users', users);

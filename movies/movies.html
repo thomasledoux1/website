@@ -1,0 +1,34 @@
+
+  <!--<a class="btn btn-primary" href="/create/movie"><span class="glyphicon glyphicon-plus"></span> Create Movie</a>-->
+<br/>
+<table class="table table-striped">
+<thead>
+  <th>Title</th>
+  <th>URL</th>
+  <th>Operations</th>
+</thead>
+<tbody>
+  <tr ng-repeat="movie in movies">
+    <td>{{movie.url}}</td>
+    <td>{{movie.title}}</td>
+    <td>
+      <div class="button-group">
+        <a ng-href="/movie/{{ movie._id }}/edit" class="btn btn-default"><span class="glyphicon glyphicon-edit"></span></a>
+        <a ng-href="/movie/{{ movie._id }}/delete" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle"></span></a>
+      </div>
+    </td>
+  </tr>
+</tbody>
+<form ng-submit="saveMovie()">
+<div class="form-group">
+  <label for="title" class="control-label">Title</label>
+  <input type="text" ng-model="movie.title" class="form-control" id="title" placeholder="Enter the movie title"/>
+</div>
+<div class="form-group">
+  <label for="title" class="control-label">URL</label>
+  <input type="text" ng-model="movie.url" class="form-control" id="title" placeholder="Enter the YouTube URL"/>
+</div>
+<button type="submit" class="btn btn-primary">Save movie</buton>
+</form>
+
+</table>
